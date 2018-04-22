@@ -1,5 +1,22 @@
-<form action = "/signup" method="POST">
-  ID:
-  <input type="text" name="firstname"></input>
-  <input type="submit" value="Submit"></input>
-</form>
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='./css/awesomplete.css') }}" />
+		<script src="{{ url_for('static', filename='./js/awesomplete.js') }}" async></script>
+	</head>
+
+	<form action = "/signup" method="POST">
+	  ID:
+	  <input type="text" class="awesomplete" list="player_list" name="firstname"></input>
+	  <input type="submit" value="Submit"></input>
+	</form>
+
+	<datalist id="player_list">
+		{% for name in player_names %}
+			<option>{{ name }}</option>
+		{% endfor %}	
+	</datalist>	
+
+
+
+</html>
